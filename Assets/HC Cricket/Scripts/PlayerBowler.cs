@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerBowler : MonoBehaviour
 {
+    [Header(" Elements ")]
+    [SerializeField] private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
