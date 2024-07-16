@@ -640,6 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 553032061}
+  moveSpeed: 3
 --- !u!4 &2081864553
 Transform:
   m_ObjectHideFlags: 0

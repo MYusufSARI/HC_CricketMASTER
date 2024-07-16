@@ -7,15 +7,25 @@ public class PlayerBowler : MonoBehaviour
     [Header(" Elements ")]
     [SerializeField] private Animator animator;
 
-    // Start is called before the first frame update
-    void Start()
+
+    [Header(" Settings ")]
+    [SerializeField] private float moveSpeed;
+
+    
+    private void Start()
     {
-        
+        animator.Play("Run");
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    private void Update()
     {
-        
+        Run();
+    }
+
+
+    private void Run()
+    {
+        transform.position += Vector3.forward * Time.deltaTime * moveSpeed;
     }
 }
