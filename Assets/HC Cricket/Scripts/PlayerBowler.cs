@@ -87,7 +87,8 @@ public class PlayerBowler : MonoBehaviour
 
         Vector3 from = fakeBall.transform.position;
         Vector3 to = ballTarget.transform.position;
+        float duration = 1f;
 
-        ballLauncher.LaunchBall();
+        ballLauncher.LaunchBall(from, to, duration);
     }
 }

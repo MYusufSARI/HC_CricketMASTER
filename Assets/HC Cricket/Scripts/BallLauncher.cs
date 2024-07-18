@@ -15,15 +15,6 @@ public class BallLauncher : MonoBehaviour
 
 
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LaunchBall();
-        }
-    }
-
-
     public void LaunchBall()
     {
         // V0 = (p(t) - 1/2 gt*gy - p0) / t
