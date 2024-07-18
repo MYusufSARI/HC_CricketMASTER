@@ -9,9 +9,9 @@ public class BowlerTarget : MonoBehaviour
     [SerializeField] private Vector2 minMaxZ;
     [SerializeField] private Vector2 moveSpeed;
 
+
     private Vector3 clickedPosition;
     private Vector3 clickedTargetPosition;
-
 
 
 
@@ -19,7 +19,6 @@ public class BowlerTarget : MonoBehaviour
     {
         ManageControl();
     }
-
 
 
     private void ManageControl()
