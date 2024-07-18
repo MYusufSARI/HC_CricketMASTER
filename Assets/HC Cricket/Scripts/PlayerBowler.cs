@@ -10,6 +10,7 @@ public class PlayerBowler : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject fakeBall;
 
+
     [Header(" Settings ")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float runDuration;
