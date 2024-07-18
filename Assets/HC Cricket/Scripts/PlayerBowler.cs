@@ -9,6 +9,8 @@ public class PlayerBowler : MonoBehaviour
     [Header(" Elements ")]
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject fakeBall;
+    [SerializeField] private BallLauncher ballLauncher;
+    [SerializeField] private GameObject ballTarget;
 
 
     [Header(" Settings ")]
@@ -82,5 +84,10 @@ public class PlayerBowler : MonoBehaviour
     public void ThrowBall()
     {
         fakeBall.SetActive(false);
+
+        Vector3 from = fakeBall.transform.position;
+        Vector3 to = ballTarget.transform.position;
+
+        ballLauncher.LaunchBall();
     }
 }

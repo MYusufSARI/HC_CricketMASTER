@@ -837,6 +837,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 553032061}
   fakeBall: {fileID: 7784890319742204209}
+  ballLauncher: {fileID: 1528512353}
+  ballTarget: {fileID: 824768207}
   moveSpeed: 3
   runDuration: 4
 --- !u!4 &2081864553

@@ -24,7 +24,7 @@ public class BallLauncher : MonoBehaviour
     }
 
 
-    private void LaunchBall()
+    public void LaunchBall()
     {
         // V0 = (p(t) - 1/2 gt*gy - p0) / t
 
@@ -35,6 +35,20 @@ public class BallLauncher : MonoBehaviour
         Vector3 initialVelocity = (pt - gt2 - p0) / flightDuration;
 
         GameObject ballInstance = Instantiate(ballPrefab, from.position, Quaternion.identity, transform);
+
+        ballInstance.GetComponent<Rigidbody>().velocity = initialVelocity;
+    }
+
+
+    public void LaunchBall(Vector3 from, Vector3 to, float flightDuration)
+    {
+        Vector3 pt = to;
+        Vector3 gt2 = Physics.gravity * flightDuration * flightDuration / 2;
+        Vector3 p0 = from;
+
+        Vector3 initialVelocity = (pt - gt2 - p0) / flightDuration;
+
+        GameObject ballInstance = Instantiate(ballPrefab, from, Quaternion.identity, transform);
 
         ballInstance.GetComponent<Rigidbody>().velocity = initialVelocity;
     }
