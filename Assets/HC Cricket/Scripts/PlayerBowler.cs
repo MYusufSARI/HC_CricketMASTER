@@ -8,6 +8,7 @@ public class PlayerBowler : MonoBehaviour
 
     [Header(" Elements ")]
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject fakeBall;
 
     [Header(" Settings ")]
     [SerializeField] private float moveSpeed;
@@ -74,5 +75,11 @@ public class PlayerBowler : MonoBehaviour
     {
         state = State.Bowling;
         animator.SetInteger("State", 2);
+    }
+
+
+    public void ThrowBall()
+    {
+        fakeBall.SetActive(false);
     }
 }
