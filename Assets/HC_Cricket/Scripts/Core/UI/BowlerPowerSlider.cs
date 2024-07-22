@@ -15,7 +15,7 @@ public class BowlerPowerSlider : MonoBehaviour
 
 
     [Header(" Events ")]
-    public static Action onPowerSliderStopped;
+    public static Action<float> onPowerSliderStopped;
 
 
     private bool canMove;
@@ -46,7 +46,7 @@ public class BowlerPowerSlider : MonoBehaviour
 
         // If we reach this point then canMove is true
         canMove = false;
-        onPowerSliderStopped?.Invoke();
+        onPowerSliderStopped?.Invoke(powerSlider.value);
     }
 
 

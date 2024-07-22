@@ -9,8 +9,14 @@ public class BowlerManager : MonoBehaviour
     [SerializeField] private BowlerTarget bowlerTarget;
     [SerializeField] private BowlerPowerSlider powerSlider;
 
+
     [SerializeField] private GameObject bowlingPanel;
-    [SerializeField] private GameObject aimingPanel; 
+    [SerializeField] private GameObject aimingPanel;
+
+
+    [Header(" Settings ")]
+    [SerializeField] private Vector2 minMaxBowlingSpeed;
+    [SerializeField] private AnimationCurve bowlingSpeedCurve;
 
 
     [Header(" Events ")]
@@ -22,6 +28,14 @@ public class BowlerManager : MonoBehaviour
     private void Start()
     {
         StartAiming();
+
+        BowlerPowerSlider.onPowerSliderStopped += PowerSliderStoppedCallback;
+    }
+
+
+    private void OnDestroy()
+    {
+        BowlerPowerSlider.onPowerSliderStopped -= PowerSliderStoppedCallback;
     }
 
 
@@ -55,5 +69,14 @@ public class BowlerManager : MonoBehaviour
 
         // 3. Enable the movement of the Power Slider
         powerSlider.StartMoving();
+    }
+
+
+    private void PowerSliderStoppedCallback(float power)
+    {
+        float lerp = bowlingSpeedCurve.Evaluate(power);
+        float bowlingSpeed = Mathf.Lerp(minMaxBowlingSpeed.x, minMaxBowlingSpeed.y, lerp);
+
+        Debug.Log("Bowling Speed : " + bowlingSpeed);
     }
 }

@@ -2499,6 +2499,40 @@ MonoBehaviour:
   powerSlider: {fileID: 425255321}
   bowlingPanel: {fileID: 1683793376}
   aimingPanel: {fileID: 746558949}
+  minMaxBowlingSpeed: {x: 60, y: 160}
+  bowlingSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.21763502
+      outSlope: 0.21763502
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.27638188
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 4.134347
+      outSlope: -3.8237288
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.19095486
+      outWeight: 0.090452194
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.4744175
+      outSlope: -0.4744175
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.20603025
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2028292876
 GameObject:
   m_ObjectHideFlags: 0
