@@ -36,8 +36,8 @@ public class BowlerManager : MonoBehaviour
     }
 
 
-    private void StartBowling()
+    public void StartBowling()
     {
-
+        
     }
 }

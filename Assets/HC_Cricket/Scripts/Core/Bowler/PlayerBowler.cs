@@ -24,7 +24,7 @@ public class PlayerBowler : MonoBehaviour
 
     private void Start()
     {
-        StartRunning();
+        state = State.Idle;
     }
 
 
