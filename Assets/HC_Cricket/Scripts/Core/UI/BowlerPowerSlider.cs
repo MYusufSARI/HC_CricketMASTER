@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,15 +10,49 @@ public class BowlerPowerSlider : MonoBehaviour
     [SerializeField] private Slider powerSlider;
 
 
+    [Header(" Settings ")]
+    [SerializeField] private float moveSpeed;
 
-    void Start()
+
+    [Header(" Events ")]
+    public static Action onPowerSliderStopped;
+
+
+    private bool canMove;
+
+
+
+    private void Update()
     {
-        
+        if (canMove)
+        {
+            Move();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void StartMoving()
     {
-        
+        canMove = true;
+    }
+
+
+    public void StopMoving()
+    {
+        if (!canMove)
+        {
+            return;
+        }
+
+        // If we reach this point then canMove is true
+        canMove = false;
+        onPowerSliderStopped?.Invoke();
+    }
+
+
+    private void Move()
+    {
+        // (sin(f.x) +1) / 2
+        powerSlider.value = (Mathf.Sin(Time.time * moveSpeed) + 1) / 2;
     }
 }

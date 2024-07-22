@@ -681,6 +681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerSlider: {fileID: 425255320}
+  moveSpeed: 2
 --- !u!95 &553032061
 Animator:
   serializedVersion: 5
