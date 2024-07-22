@@ -14,12 +14,14 @@ public class BowlerCamera : MonoBehaviour
     private void Awake()
     {
         BowlerManager.onAimingStarted += EnableAimingCamera;
+        BowlerManager.onBowlingStarted += EnableBowlingCamera;
     }
 
 
     private void OnDestroy()
     {
         BowlerManager.onAimingStarted -= EnableAimingCamera;
+        BowlerManager.onBowlingStarted -= EnableBowlingCamera;
     }
 
 

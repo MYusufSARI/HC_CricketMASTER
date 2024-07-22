@@ -7,10 +7,15 @@ public class BowlerManager : MonoBehaviour
 {
     [Header(" Elements ")]
     [SerializeField] private BowlerTarget bowlerTarget;
+    [SerializeField] private BowlerPowerSlider powerSlider;
+
+    [SerializeField] private GameObject bowlingPanel;
+    [SerializeField] private GameObject aimingPanel; 
 
 
     [Header(" Events ")]
     public static Action onAimingStarted;
+    public static Action onBowlingStarted;
 
 
 
@@ -26,7 +31,8 @@ public class BowlerManager : MonoBehaviour
         bowlerTarget.EnableMovement();
 
         // 2. Hide the Power Slider
-
+        aimingPanel.SetActive(true);
+        bowlingPanel.SetActive(false);
 
         // 3. Enable the Aiming Camera
 
@@ -38,6 +44,16 @@ public class BowlerManager : MonoBehaviour
 
     public void StartBowling()
     {
-        
+        // 1. Disable the movement of the Bowler Target
+        bowlerTarget.DisableMovement();
+
+        // 2. Show the Power Slider
+        bowlingPanel.SetActive(true);
+        aimingPanel.SetActive(false);
+
+        onBowlingStarted?.Invoke();
+
+        // 3. Enable the movement of the Power Slider
+        powerSlider.StartMoving();
     }
 }
