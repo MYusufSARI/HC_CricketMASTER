@@ -9,6 +9,17 @@ public class BowlerManager : MonoBehaviour
     [SerializeField] private BowlerTarget bowlerTarget;
 
 
+    [Header(" Events ")]
+    public static Action onAimingStarted;
+
+
+
+    private void Start()
+    {
+        StartAiming();
+    }
+
+
     private void StartAiming()
     {
         // 1. Enable the movement of the BowlerTarget
@@ -21,7 +32,7 @@ public class BowlerManager : MonoBehaviour
 
 
         // 4. Disable the Bowling Camera
-
+        onAimingStarted?.Invoke();
     }
 
 
