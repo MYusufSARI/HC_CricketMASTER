@@ -13,11 +13,16 @@ public class BowlerTarget : MonoBehaviour
     private Vector3 clickedPosition;
     private Vector3 clickedTargetPosition;
 
+    private bool canMove;
+
 
 
     private void Update()
     {
-        ManageControl();
+        if (canMove)
+        {
+            ManageControl();
+        }
     }
 
 
@@ -43,5 +48,17 @@ public class BowlerTarget : MonoBehaviour
 
             transform.position = targetPosition;
         }
+    }
+
+
+    public void EnableMovement()
+    {
+        canMove = true;
+    }
+
+
+    public void DisableMovement()
+    {
+        canMove = false;
     }
 }
