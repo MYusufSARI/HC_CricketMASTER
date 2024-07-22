@@ -8,6 +8,7 @@ public class BowlerManager : MonoBehaviour
     [Header(" Elements ")]
     [SerializeField] private BowlerTarget bowlerTarget;
     [SerializeField] private BowlerPowerSlider powerSlider;
+    [SerializeField] private PlayerBowler playerBowler;
 
 
     [SerializeField] private GameObject bowlingPanel;
@@ -76,6 +77,8 @@ public class BowlerManager : MonoBehaviour
     {
         float lerp = bowlingSpeedCurve.Evaluate(power);
         float bowlingSpeed = Mathf.Lerp(minMaxBowlingSpeed.x, minMaxBowlingSpeed.y, lerp);
+
+        playerBowler.StartRunning(bowlingSpeed);
 
         Debug.Log("Bowling Speed : " + bowlingSpeed);
     }

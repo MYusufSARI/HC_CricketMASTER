@@ -2497,6 +2497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bowlerTarget: {fileID: 824768209}
   powerSlider: {fileID: 425255321}
+  playerBowler: {fileID: 2081864552}
   bowlingPanel: {fileID: 1683793376}
   aimingPanel: {fileID: 746558949}
   minMaxBowlingSpeed: {x: 60, y: 160}
@@ -2630,6 +2631,7 @@ MonoBehaviour:
   ballTarget: {fileID: 824768207}
   moveSpeed: 3
   runDuration: 4
+  flightDurationMultiplier: 2
 --- !u!4 &2081864553
 Transform:
   m_ObjectHideFlags: 0
