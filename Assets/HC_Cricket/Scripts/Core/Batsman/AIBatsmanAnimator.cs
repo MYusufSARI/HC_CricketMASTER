@@ -9,7 +9,7 @@ public class AIBatsmanAnimator : MonoBehaviour
 
 
 
-    public void StartDetectingHit()
+    public void StartDetectingHits()
     {
         aiBatsman.StartDetectingHits();
     }
