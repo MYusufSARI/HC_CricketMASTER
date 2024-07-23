@@ -122,11 +122,11 @@ public class AIBatsman : MonoBehaviour
     private void CheckForHits()
     {
         Vector3 center = batsCollider.transform.TransformPoint(batsCollider.center);
-        Vector3 halfExtents = batsCollider.size / 2;
+        Vector3 halfExtents = 1.5f * batsCollider.size / 2;
 
         Quaternion rotation = batsCollider.transform.rotation;
 
-        Collider[] detectedBalls =  Physics.OverlapBox(center, halfExtents, rotation, ballMask);
+        Collider[] detectedBalls = Physics.OverlapBox(center, halfExtents, rotation, ballMask);
 
         for (int i = 0; i < detectedBalls.Length; i++)
         {
@@ -147,7 +147,7 @@ public class AIBatsman : MonoBehaviour
 
     private void ShootBall(Transform ball)
     {
-
+        ball.GetComponent<Rigidbody>().velocity = (Vector3.back + Vector3.up) * 10;
     }
 
 

@@ -277,6 +277,9 @@ MonoBehaviour:
   _animator: {fileID: 1298134367}
   batsCollider: {fileID: 1496553965}
   moveSpeed: 1.5
+  ballMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &10754187
 GameObject:
   m_ObjectHideFlags: 0
@@ -6702,7 +6705,7 @@ Transform:
   m_Children:
   - {fileID: 1649950876}
   m_Father: {fileID: 1678565503}
-  m_LocalEulerAnglesHint: {x: 13.145, y: 9.721, z: -66.869}
+  m_LocalEulerAnglesHint: {x: 12.377, y: 36.379, z: -63.852}
 --- !u!1 &1812803248
 GameObject:
   m_ObjectHideFlags: 0
