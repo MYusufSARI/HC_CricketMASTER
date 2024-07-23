@@ -95,7 +95,16 @@ public class AIBatsman : MonoBehaviour
     {
         _state = State.Hitting;
 
-        _animator.Play(HIT);
+        StartCoroutine(WaitAndHitCoroutine());
+
+        IEnumerator WaitAndHitCoroutine()
+        {
+            float bestDelay = ballFlightDuration - 0.5f;
+
+            yield return new WaitForSeconds(bestDelay);
+
+            _animator.Play(HIT);
+        }
     }
 
 
