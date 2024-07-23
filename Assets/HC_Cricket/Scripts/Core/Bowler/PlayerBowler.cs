@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,11 @@ public class PlayerBowler : MonoBehaviour
     [SerializeField] private float flightDurationMultiplier;
     private float runTimer;
     private float bowlingSpeed;
+
+
+    [Header(" Events ")]
+    public static Action<float> onBallThrown;
+
 
     private State state;
 
@@ -105,5 +111,7 @@ public class PlayerBowler : MonoBehaviour
         print("Duration : " + duration);
 
         ballLauncher.LaunchBall(from, to, duration);
+
+        onBallThrown?.Invoke(duration);
     }
 }
