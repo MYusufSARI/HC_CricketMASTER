@@ -16,6 +16,7 @@ public class AIBatsman : MonoBehaviour
 
 
     private State _state;
+    private bool canDetectHits;
 
 
     private const string IDLE = "Idle";
@@ -105,6 +106,12 @@ public class AIBatsman : MonoBehaviour
 
             _animator.Play(HIT);
         }
+    }
+
+
+    public void StartDetectingHits()
+    {
+        canDetectHits = true;
     }
 
 
