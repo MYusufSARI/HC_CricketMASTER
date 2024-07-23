@@ -280,6 +280,8 @@ MonoBehaviour:
   ballMask:
     serializedVersion: 2
     m_Bits: 64
+  mixMaxHitVelocity: {x: 10, y: 30}
+  maxHitDuration: 0.5
 --- !u!1 &10754187
 GameObject:
   m_ObjectHideFlags: 0
@@ -5468,8 +5470,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.12694255, y: 0.56587577, z: 0.08848423}
-  m_Center: {x: 0.0000025161833, y: 0.5342674, z: -0.006615358}
+  m_Size: {x: 0.12694255, y: 0.56587726, z: 0.192084}
+  m_Center: {x: 0.000005056157, y: 0.5342588, z: 0.045185402}
 --- !u!1 &1520261810
 GameObject:
   m_ObjectHideFlags: 0
@@ -6705,7 +6707,7 @@ Transform:
   m_Children:
   - {fileID: 1649950876}
   m_Father: {fileID: 1678565503}
-  m_LocalEulerAnglesHint: {x: 12.377, y: 36.379, z: -63.852}
+  m_LocalEulerAnglesHint: {x: 2.318, y: 28.685, z: -65.72}
 --- !u!1 &1812803248
 GameObject:
   m_ObjectHideFlags: 0

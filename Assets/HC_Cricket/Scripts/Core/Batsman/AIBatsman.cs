@@ -15,10 +15,13 @@ public class AIBatsman : MonoBehaviour
     [Header(" Settings ")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private LayerMask ballMask;
+    [SerializeField] private Vector2 mixMaxHitVelocity;
+    [SerializeField] private float maxHitDuration;
 
 
     private State _state;
     private bool canDetectHits;
+    private float hitTimer;
 
 
     private const string IDLE = "Idle";
@@ -116,6 +119,7 @@ public class AIBatsman : MonoBehaviour
     public void StartDetectingHits()
     {
         canDetectHits = true;
+        hitTimer = 0;
     }
 
 
@@ -134,6 +138,7 @@ public class AIBatsman : MonoBehaviour
             return;
         }
 
+        hitTimer += Time.deltaTime;
     }
 
 
@@ -147,7 +152,14 @@ public class AIBatsman : MonoBehaviour
 
     private void ShootBall(Transform ball)
     {
-        ball.GetComponent<Rigidbody>().velocity = (Vector3.back + Vector3.up) * 10;
+        // Compare the Hit Timer with the Max Duration
+        // if hitTimer =0 => maxHitVelocity
+        // if hitTimer > maxHitDuration => minVelocity
+
+        float lerp = Mathf.Clamp01(hitTimer / maxHitDuration);
+        float hitVelocity = Mathf.Lerp(mixMaxHitVelocity.y, mixMaxHitVelocity.x, lerp);
+
+        ball.GetComponent<Rigidbody>().velocity = (Vector3.back + Vector3.up + Vector3.right * Random.Range(-1f, 1f )) * hitVelocity;
     }
 
 
