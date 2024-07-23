@@ -2207,8 +2207,8 @@ Camera:
   m_GameObject: {fileID: 667851428}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0.7546296, b: 1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2655,12 +2655,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707556582}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -4.3, z: 0}
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1977906329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &708228314
 GameObject:
@@ -4641,7 +4641,7 @@ Transform:
   m_GameObject: {fileID: 1070544579}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15445171, y: 0, z: 0, w: 0.98800033}
-  m_LocalPosition: {x: 0, y: 3.3, z: -30}
+  m_LocalPosition: {x: 0, y: 5.13, z: -33.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5529,7 +5529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 3.3, z: -5.25}
+  m_FollowOffset: {x: 0, y: 5.13, z: -8.72}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -7626,6 +7626,7 @@ Transform:
   - {fileID: 678754896}
   - {fileID: 1231052119}
   - {fileID: 736558002}
+  - {fileID: 707556586}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1983938315
@@ -9348,4 +9349,3 @@ SceneRoots:
   - {fileID: 1919148529}
   - {fileID: 1186391020}
   - {fileID: 1387367701}
-  - {fileID: 707556586}
