@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AIBatsman : MonoBehaviour
 {
@@ -17,6 +19,10 @@ public class AIBatsman : MonoBehaviour
     [SerializeField] private LayerMask ballMask;
     [SerializeField] private Vector2 mixMaxHitVelocity;
     [SerializeField] private float maxHitDuration;
+
+
+    [Header(" Events ")]
+    public static Action<Transform> onBallHit;
 
 
     private State _state;
@@ -160,6 +166,8 @@ public class AIBatsman : MonoBehaviour
         float hitVelocity = Mathf.Lerp(mixMaxHitVelocity.y, mixMaxHitVelocity.x, lerp);
 
         ball.GetComponent<Rigidbody>().velocity = (Vector3.back + Vector3.up + Vector3.right * Random.Range(-1f, 1f )) * hitVelocity;
+
+        onBallHit?.Invoke(ball);
     }
 
 

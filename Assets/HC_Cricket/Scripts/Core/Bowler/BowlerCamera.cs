@@ -8,6 +8,7 @@ public class BowlerCamera : MonoBehaviour
     [Header(" Elements ")]
     [SerializeField] private GameObject aimingCamera;
     [SerializeField] private GameObject bowlingCamera;
+    [SerializeField] private GameObject ballCamera;
 
 
 
@@ -15,6 +16,7 @@ public class BowlerCamera : MonoBehaviour
     {
         BowlerManager.onAimingStarted += EnableAimingCamera;
         BowlerManager.onBowlingStarted += EnableBowlingCamera;
+        AIBatsman.onBallHit += EnableBallCamera;
     }
 
 
@@ -22,6 +24,7 @@ public class BowlerCamera : MonoBehaviour
     {
         BowlerManager.onAimingStarted -= EnableAimingCamera;
         BowlerManager.onBowlingStarted -= EnableBowlingCamera;
+        AIBatsman.onBallHit -= EnableBallCamera;
     }
 
 
@@ -29,12 +32,25 @@ public class BowlerCamera : MonoBehaviour
     {
         aimingCamera.SetActive(true);
         bowlingCamera.SetActive(false);
+        ballCamera.SetActive(false);
     }
 
 
     private void EnableBowlingCamera()
     {
         bowlingCamera.SetActive(true);
+        aimingCamera.SetActive(false);
+        ballCamera.SetActive(false);
+    }
+
+
+    private void EnableBallCamera(Transform ball)
+    {
+        ballCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = ball;
+        ballCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().LookAt = ball;
+
+        ballCamera.SetActive(true);
+        bowlingCamera.SetActive(false);
         aimingCamera.SetActive(false);
     }
 
