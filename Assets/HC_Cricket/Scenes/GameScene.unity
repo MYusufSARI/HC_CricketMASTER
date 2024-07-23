@@ -275,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bowlerTarget: {fileID: 824768209}
   _animator: {fileID: 1298134367}
+  batsCollider: {fileID: 1496553965}
   moveSpeed: 1.5
 --- !u!1 &10754187
 GameObject:

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7755525498146291212}
   - component: {fileID: 482307438460535259}
   - component: {fileID: 4031005189620598576}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BallRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,8 +94,8 @@ GameObject:
   - component: {fileID: 5051924311310451803}
   - component: {fileID: 2815210580565149124}
   - component: {fileID: 8690262662334295143}
-  m_Layer: 0
-  m_Name: FakeBall
+  m_Layer: 6
+  m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -9,10 +9,12 @@ public class AIBatsman : MonoBehaviour
     [Header(" Elements ")]
     [SerializeField] private BowlerTarget bowlerTarget;
     [SerializeField] private Animator _animator;
+    [SerializeField] private BoxCollider batsCollider;
 
 
     [Header(" Settings ")]
     [SerializeField] private float moveSpeed;
+    [SerializeField] private LayerMask ballMask;
 
 
     private State _state;
@@ -55,6 +57,8 @@ public class AIBatsman : MonoBehaviour
                 break;
 
             case State.Hitting:
+                if (canDetectHits)
+                    CheckForHits();
                 break;
         }
     }
@@ -112,6 +116,38 @@ public class AIBatsman : MonoBehaviour
     public void StartDetectingHits()
     {
         canDetectHits = true;
+    }
+
+
+    private void CheckForHits()
+    {
+        Vector3 center = batsCollider.transform.TransformPoint(batsCollider.center);
+        Vector3 halfExtents = batsCollider.size / 2;
+
+        Quaternion rotation = batsCollider.transform.rotation;
+
+        Collider[] detectedBalls =  Physics.OverlapBox(center, halfExtents, rotation, ballMask);
+
+        for (int i = 0; i < detectedBalls.Length; i++)
+        {
+            BallDetectedCallback(detectedBalls[i]);
+            return;
+        }
+
+    }
+
+
+    private void BallDetectedCallback(Collider ballCollider)
+    {
+        canDetectHits = false;
+
+        ShootBall(ballCollider.transform);
+    }
+
+
+    private void ShootBall(Transform ball)
+    {
+
     }
 
 
