@@ -8,7 +8,7 @@ public class PlayerBowler : MonoBehaviour
     public enum State { Idle, Aiming, Running, Bowling }
 
     [Header(" Elements ")]
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator _animator;
     [SerializeField] private GameObject fakeBall;
     [SerializeField] private BallLauncher ballLauncher;
     [SerializeField] private GameObject ballTarget;
@@ -20,19 +20,31 @@ public class PlayerBowler : MonoBehaviour
     [SerializeField] private float flightDurationMultiplier;
     private float runTimer;
     private float bowlingSpeed;
+    private Vector3 initialPosition;
 
 
     [Header(" Events ")]
     public static Action<float> onBallThrown;
 
+    private const string IDLE = "Idle";
 
-    private State state;
+    private State _state;
 
 
 
     private void Start()
     {
-        state = State.Idle;
+        _state = State.Idle;
+
+        initialPosition = transform.position;
+
+        BowlerManager.onNextOverSet += Restart;
+    }
+
+
+    private void OnDestroy()
+    {
+        BowlerManager.onNextOverSet -= Restart;
     }
 
 
@@ -44,7 +56,7 @@ public class PlayerBowler : MonoBehaviour
 
     private void ManageState()
     {
-        switch (state)
+        switch (_state)
         {
             case State.Idle:
                 break;
@@ -66,8 +78,10 @@ public class PlayerBowler : MonoBehaviour
     {
         this.bowlingSpeed = bowlingSpeed;
 
-        state = State.Running;
-        animator.SetInteger("State", 1);
+        runTimer = 0;
+
+        _state = State.Running;
+        _animator.SetInteger("State", 1);
     }
 
 
@@ -86,8 +100,8 @@ public class PlayerBowler : MonoBehaviour
 
     private void StartBowling()
     {
-        state = State.Bowling;
-        animator.SetInteger("State", 2);
+        _state = State.Bowling;
+        _animator.SetInteger("State", 2);
     }
 
 
@@ -113,5 +127,17 @@ public class PlayerBowler : MonoBehaviour
         ballLauncher.LaunchBall(from, to, duration);
 
         onBallThrown?.Invoke(duration);
+    }
+
+
+    private void Restart()
+    {
+        _state = State.Idle;
+        transform.position = initialPosition;
+
+        _animator.SetInteger("State", 0);
+        _animator.Play(IDLE);
+
+        fakeBall.SetActive(true);
     }
 }

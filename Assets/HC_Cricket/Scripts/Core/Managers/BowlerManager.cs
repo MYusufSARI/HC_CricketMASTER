@@ -20,9 +20,13 @@ public class BowlerManager : MonoBehaviour
     [SerializeField] private AnimationCurve bowlingSpeedCurve;
 
 
+    private int currentOver;
+
+
     [Header(" Events ")]
     public static Action onAimingStarted;
     public static Action onBowlingStarted;
+    public static Action onNextOverSet;
 
 
 
@@ -38,12 +42,14 @@ public class BowlerManager : MonoBehaviour
         StartAiming();
 
         BowlerPowerSlider.onPowerSliderStopped += PowerSliderStoppedCallback;
+        Ball.onBallHitGround += BallHitGroundCallback;
     }
 
 
     private void OnDestroy()
     {
         BowlerPowerSlider.onPowerSliderStopped -= PowerSliderStoppedCallback;
+        Ball.onBallHitGround -= BallHitGroundCallback;
     }
 
 
@@ -88,5 +94,37 @@ public class BowlerManager : MonoBehaviour
         playerBowler.StartRunning(bowlingSpeed);
 
         Debug.Log("Bowling Speed : " + bowlingSpeed);
+    }
+
+
+    private void BallHitGroundCallback(Vector3 ballHitPosition)
+    {
+        currentOver++;
+
+        if(currentOver >= 3)
+        {
+            // We should either switch to the next game mode
+            // Or we should end the game / Compare the scores
+        }
+
+        else
+        {
+            SetNextOver();
+        }
+    }
+
+
+    private void SetNextOver()
+    {
+        StartCoroutine(WaitAndRestart());
+
+        IEnumerator WaitAndRestart()
+        {
+            yield return new WaitForSeconds(2);
+
+            onNextOverSet?.Invoke();
+
+            StartAiming();
+        }
     }
 }

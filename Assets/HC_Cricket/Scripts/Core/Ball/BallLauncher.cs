@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallLauncher : MonoBehaviour
 {
     [Header(" Elements ")]
-    [SerializeField] private Transform from;
+    [SerializeField] private Transform _from;
     [SerializeField] private Transform ballTarget;
     [SerializeField] private GameObject ballPrefab;
 
@@ -21,11 +21,11 @@ public class BallLauncher : MonoBehaviour
 
         Vector3 pt = ballTarget.position;
         Vector3 gt2 = Physics.gravity * flightDuration * flightDuration / 2;
-        Vector3 p0 = from.position;
+        Vector3 p0 = _from.position;
 
         Vector3 initialVelocity = (pt - gt2 - p0) / flightDuration;
 
-        GameObject ballInstance = Instantiate(ballPrefab, from.position, Quaternion.identity, transform);
+        GameObject ballInstance = Instantiate(ballPrefab, _from.position, Quaternion.identity, transform);
 
         ballInstance.GetComponent<Rigidbody>().velocity = initialVelocity;
     }

@@ -12,6 +12,7 @@ public class LocalScoreManager : MonoBehaviour
     [Header(" Settings ")]
     [SerializeField] private float firstRingRadius;
     [SerializeField] private float secondRingRadius;
+    private int currentOver;
 
 
     private void Start()
@@ -51,7 +52,9 @@ public class LocalScoreManager : MonoBehaviour
             score += 2;
         }
 
-        scoreTexts[0].text = score.ToString();
+        scoreTexts[currentOver].text = score.ToString();
+
+        currentOver++;
     }
 
 
