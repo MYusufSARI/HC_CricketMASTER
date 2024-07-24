@@ -25,6 +25,15 @@ public class Ball : MonoBehaviour
     }
 
 
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.tag =="Water")
+        {
+            WaterTriggeredCallback();
+        }
+    }
+
+
     private void FieldCollidedCallback()
     {
         if (!hasBeenHitByBat)
@@ -37,6 +46,23 @@ public class Ball : MonoBehaviour
             return;
         }
 
+        hasHitGround = true;
+
+        onBallHitGround?.Invoke(transform.position);
+    }
+
+
+    private void WaterTriggeredCallback()
+    {
+        if (!hasBeenHitByBat)
+        {
+            return;
+        }
+
+        if (hasHitGround)
+        {
+            return;
+        }
         hasHitGround = true;
 
         onBallHitGround?.Invoke(transform.position);

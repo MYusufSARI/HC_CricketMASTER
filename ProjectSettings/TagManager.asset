@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Field
+  - Water
   layers:
   - Default
   - TransparentFX

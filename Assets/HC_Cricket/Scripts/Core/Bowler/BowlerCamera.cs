@@ -17,6 +17,7 @@ public class BowlerCamera : MonoBehaviour
         BowlerManager.onAimingStarted += EnableAimingCamera;
         BowlerManager.onBowlingStarted += EnableBowlingCamera;
         AIBatsman.onBallHit += EnableBallCamera;
+        Ball.onBallHitGround += BallHitGroundCallback;
     }
 
 
@@ -25,6 +26,7 @@ public class BowlerCamera : MonoBehaviour
         BowlerManager.onAimingStarted -= EnableAimingCamera;
         BowlerManager.onBowlingStarted -= EnableBowlingCamera;
         AIBatsman.onBallHit -= EnableBallCamera;
+        Ball.onBallHitGround -= BallHitGroundCallback;
     }
 
 
@@ -54,4 +56,10 @@ public class BowlerCamera : MonoBehaviour
         aimingCamera.SetActive(false);
     }
 
+
+    private void BallHitGroundCallback(Vector3 hitPosition)
+    {
+        ballCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = null;
+        ballCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().LookAt = null;
+    }
 }

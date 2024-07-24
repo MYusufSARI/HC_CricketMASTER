@@ -280,7 +280,7 @@ MonoBehaviour:
   ballMask:
     serializedVersion: 2
     m_Bits: 64
-  mixMaxHitVelocity: {x: 5, y: 10}
+  mixMaxHitVelocity: {x: 10, y: 15}
   maxHitDuration: 0.5
 --- !u!1 &10754187
 GameObject:
@@ -1042,14 +1042,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112071638}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15445171, y: 0, z: 0, w: 0.98800033}
-  m_LocalPosition: {x: 0, y: 3.3, z: -30}
+  m_LocalRotation: {x: 0.19080894, y: 0, z: 0, w: 0.9816273}
+  m_LocalPosition: {x: 0, y: 5.97, z: -35.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 576005928}
   m_Father: {fileID: 1977906329}
-  m_LocalEulerAnglesHint: {x: 17.77, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 22, y: 0, z: 0}
 --- !u!1 &147760867
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,8 +2573,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667851428}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15445171, y: 0, z: 0, w: 0.98800033}
-  m_LocalPosition: {x: 0, y: 5.27, z: -34.62}
+  m_LocalRotation: {x: 0.19080894, y: 0, z: 0, w: 0.9816273}
+  m_LocalPosition: {x: 0, y: 5.97, z: -35.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3018,36 +3018,14 @@ GameObject:
   - component: {fileID: 707556586}
   - component: {fileID: 707556585}
   - component: {fileID: 707556584}
-  - component: {fileID: 707556583}
+  - component: {fileID: 707556587}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &707556583
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 707556582}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &707556584
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3113,6 +3091,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1977906329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &707556587
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707556582}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 47.9306, z: 10}
+  m_Center: {x: 0, y: -23.9653, z: 0}
 --- !u!1 &708228314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3678,7 +3677,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &746558950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4624,8 +4623,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: cf7a7516be2108f4e9c10d021ec37b52, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5268,7 +5267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1070544580
 Transform:
   m_ObjectHideFlags: 0
