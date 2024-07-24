@@ -7,6 +7,7 @@ TagManager:
   - Field
   - Water
   - Miss
+  - Stump
   layers:
   - Default
   - TransparentFX

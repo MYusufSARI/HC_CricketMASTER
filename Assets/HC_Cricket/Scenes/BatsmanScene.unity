@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 7600009}
   - component: {fileID: 7600010}
   m_Layer: 0
-  m_Name: AIBatsman
+  m_Name: PlayerBatsman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -616,7 +616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &92974814
 Transform:
   m_ObjectHideFlags: 0
@@ -994,7 +994,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &112071639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2573,8 +2573,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667851428}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19080894, y: 0, z: 0, w: 0.9816273}
-  m_LocalPosition: {x: 0, y: 5.97, z: -35.93}
+  m_LocalRotation: {x: 0, y: 0.98800033, z: -0.15445171, w: 0}
+  m_LocalPosition: {x: 0, y: 5.27, z: 16.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5262,12 +5262,12 @@ GameObject:
   - component: {fileID: 1070544580}
   - component: {fileID: 1070544581}
   m_Layer: 0
-  m_Name: BowlerCamera
+  m_Name: BatsmanCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1070544580
 Transform:
   m_ObjectHideFlags: 0
@@ -5276,14 +5276,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070544579}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15445171, y: 0, z: 0, w: 0.98800033}
-  m_LocalPosition: {x: 0, y: 5.27, z: -34.62}
+  m_LocalRotation: {x: 0, y: 0.98800033, z: -0.15445171, w: 0}
+  m_LocalPosition: {x: 0, y: 5.27, z: 16.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1352783503}
   m_Father: {fileID: 1977906329}
-  m_LocalEulerAnglesHint: {x: 17.77, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 17.77, y: 180, z: 0}
 --- !u!114 &1070544581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5303,7 +5303,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 2081864553}
+  m_Follow: {fileID: 7600009}
   m_Lens:
     FieldOfView: 50
     OrthographicSize: 5
@@ -6138,7 +6138,7 @@ GameObject:
   - component: {fileID: 1298134367}
   - component: {fileID: 1298134368}
   m_Layer: 0
-  m_Name: AIBatsmanAnimator
+  m_Name: PlayerBatsmanAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6317,7 +6317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 5.27, z: -9.87}
+  m_FollowOffset: {x: 0, y: 5.27, z: -7.96}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -6391,7 +6391,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: e4986377b6c898745b9597481cb01b21, type: 2}
-  - {fileID: 2100000, guid: 7b20bccd9ad444764a4a26dd689b0758, type: 2}
+  - {fileID: 2100000, guid: a48738a7007b3b247b9e69e051b41a0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8937,7 +8937,7 @@ GameObject:
   - component: {fileID: 2081864553}
   - component: {fileID: 2081864552}
   m_Layer: 0
-  m_Name: PlayerBowler
+  m_Name: AiBowler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9129,7 +9129,7 @@ GameObject:
   - component: {fileID: 553032061}
   - component: {fileID: 919132149062231037}
   m_Layer: 0
-  m_Name: PlayerBowlerAnimator
+  m_Name: AiBowlerAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10171,7 +10171,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: e4986377b6c898745b9597481cb01b21, type: 2}
-  - {fileID: 2100000, guid: a48738a7007b3b247b9e69e051b41a0f, type: 2}
+  - {fileID: 2100000, guid: 7b20bccd9ad444764a4a26dd689b0758, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

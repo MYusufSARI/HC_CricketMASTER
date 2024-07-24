@@ -13,6 +13,7 @@ public class Ball : MonoBehaviour
     [Header(" Events ")]
     public static Action<Vector3> onBallHitGround;
     public static Action onBallMissed;
+    public static Action onBallHitStump;
 
 
 
@@ -22,6 +23,11 @@ public class Ball : MonoBehaviour
         if (collision.collider.tag == "Field")
         {
             FieldCollidedCallback();
+        }
+
+        if (collision.collider.tag == "Stump")
+        {
+            StumpCollidedCallback();
         }
     }
 
@@ -89,6 +95,22 @@ public class Ball : MonoBehaviour
         hasHitGround = true;
 
         onBallMissed?.Invoke();
+    }
+
+
+    private void StumpCollidedCallback()
+    {
+        if (hasBeenHitByBat)
+        {
+            return;
+        }
+
+        if (hasHitGround)
+        {
+            return;
+        }
+
+        onBallHitStump?.Invoke();
     }
 
 

@@ -45,6 +45,7 @@ public class BowlerManager : MonoBehaviour
 
         Ball.onBallMissed += BallMissedCallback;
         Ball.onBallHitGround += BallHitGroundCallback;
+        Ball.onBallHitStump += BallHitStumpCallback;
     }
 
 
@@ -54,6 +55,7 @@ public class BowlerManager : MonoBehaviour
 
         Ball.onBallMissed -= BallMissedCallback;
         Ball.onBallHitGround -= BallHitGroundCallback;
+        Ball.onBallHitStump -= BallHitStumpCallback;
     }
 
 
@@ -109,6 +111,8 @@ public class BowlerManager : MonoBehaviour
         {
             // We should either switch to the next game mode
             // Or we should end the game / Compare the scores
+
+            Debug.Log("Set next game Mode");
         }
 
         else
@@ -120,6 +124,14 @@ public class BowlerManager : MonoBehaviour
 
     private void BallMissedCallback()
     {
+        BallHitGroundCallback(Vector3.zero);
+    }
+
+
+    private void BallHitStumpCallback()
+    {
+        currentOver = 2;
+
         BallHitGroundCallback(Vector3.zero);
     }
 
