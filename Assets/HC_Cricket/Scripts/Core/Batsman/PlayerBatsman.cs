@@ -13,10 +13,14 @@ public class PlayerBatsman : MonoBehaviour
 
 
     [Header(" Settings ")]
-    [SerializeField] private float moveSpeed;
     [SerializeField] private LayerMask ballMask;
     [SerializeField] private Vector2 mixMaxHitVelocity;
     [SerializeField] private float maxHitDuration;
+
+
+    [Header(" Movement Settings ")]
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private Vector2 minMaxX;
 
 
     [Header(" Events ")]
@@ -27,10 +31,15 @@ public class PlayerBatsman : MonoBehaviour
     private float hitTimer;
 
 
+    private Vector3 clickedPosition;
+    private Vector3 clickedTargetPosition;
+
+
     private const string IDLE = "Idle";
     private const string LEFT_WALKING = "Left";
     private const string RIGHT_WALKING = "Right";
     private const string HIT = "Hit";
+    private const string PLAYER_HIT = "Player Hit";
 
 
 
@@ -48,17 +57,17 @@ public class PlayerBatsman : MonoBehaviour
 
     private void Update()
     {
+        ManageControl();
+
         if (canDetectHits)
             CheckForHits();
     }
 
 
-    private void Move()
+    private void Move(float targetX)
     {
         Vector3 targetPosition = transform.position;
-        //targetPosition.x = GetTargetX();
-
-        targetPosition.x = Mathf.Clamp(targetPosition.x, -1.83f, 1.83f);
+        targetPosition.x = targetX;
 
         // Calculate how far we are from the target
         float difference = targetPosition.x - transform.position.x;
@@ -89,6 +98,13 @@ public class PlayerBatsman : MonoBehaviour
     {
         canDetectHits = true;
         hitTimer = 0;
+    }
+
+
+    public void StopDetectingHits()
+    {
+        canDetectHits = false;
+
     }
 
 
@@ -136,8 +152,35 @@ public class PlayerBatsman : MonoBehaviour
     }
 
 
+    private void ManageControl()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            clickedPosition = Input.mousePosition;
+            clickedTargetPosition = transform.position;
+        }
+
+        else if (Input.GetMouseButton(0))
+        {
+            Vector3 difference = Input.mousePosition - clickedPosition;
+
+            difference.x /= Screen.width;
+
+            float targetX = clickedTargetPosition.x - (difference.x * moveSpeed);
+
+            Move(targetX);
+        }
+    }
+
+
+    public void HitButtonCallback()
+    {
+        _animator.Play(PLAYER_HIT);
+    }
+
+
     private void Restart()
     {
-        
+
     }
 }
