@@ -42,12 +42,14 @@ public class AIBatsman : MonoBehaviour
         _state = State.Moving;
 
         PlayerBowler.onBallThrown += BallThrownCallback;
+        BowlerManager.onNextOverSet += Restart;
     }
 
 
     private void OnDestroy()
     {
         PlayerBowler.onBallThrown -= BallThrownCallback;
+        BowlerManager.onNextOverSet -= Restart;
     }
 
 
@@ -189,5 +191,11 @@ public class AIBatsman : MonoBehaviour
         Vector3 targetAiPosition = bowlerShootPosition + shootDirection.normalized * ab;
 
         return targetAiPosition.x + 0.5f;
+    }
+
+
+    private void Restart()
+    {
+        _state = State.Moving;
     }
 }
