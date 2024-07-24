@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class PlayerBatsman : MonoBehaviour
 {
+    private enum State { Moving, Hitting}
+
     [Header(" Elements ")]
     [SerializeField] private Animator _animator;
     [SerializeField] private BoxCollider batsCollider;
@@ -30,6 +32,8 @@ public class PlayerBatsman : MonoBehaviour
     private bool canDetectHits;
     private float hitTimer;
 
+    private State _state;
+
 
     private Vector3 clickedPosition;
     private Vector3 clickedTargetPosition;
@@ -45,6 +49,8 @@ public class PlayerBatsman : MonoBehaviour
 
     private void Start()
     {
+        _state = State.Moving;
+
         BowlerManager.onNextOverSet += Restart;
     }
 
@@ -57,10 +63,23 @@ public class PlayerBatsman : MonoBehaviour
 
     private void Update()
     {
-        ManageControl();
+        ManageState();
+    }
 
-        if (canDetectHits)
-            CheckForHits();
+
+    private void ManageState()
+    {
+        switch (_state)
+        {
+            case State.Moving:
+                ManageControl();
+                break;
+
+            case State.Hitting:
+                if (canDetectHits)
+                    CheckForHits();
+                break;
+        }
     }
 
 
@@ -105,6 +124,7 @@ public class PlayerBatsman : MonoBehaviour
     {
         canDetectHits = false;
 
+        _state = State.Moving;
     }
 
 
@@ -170,11 +190,18 @@ public class PlayerBatsman : MonoBehaviour
 
             Move(targetX);
         }
+
+        else if (Input.GetMouseButtonUp(0))
+        {
+            Move(transform.position.x);
+        }
     }
 
 
     public void HitButtonCallback()
     {
+        _state = State.Hitting;
+
         _animator.Play(PLAYER_HIT);
     }
 
