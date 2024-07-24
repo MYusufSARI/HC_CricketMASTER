@@ -20,12 +20,14 @@ public class LocalScoreManager : MonoBehaviour
         ClearTexts();
 
         Ball.onBallHitGround += BallHitGroundCallback;
+        Ball.onBallMissed += BallMissedCallback;
     }
 
 
     private void OnDestroy()
     {
         Ball.onBallHitGround -= BallHitGroundCallback;
+        Ball.onBallMissed -= BallMissedCallback;
     }
 
     // Update is called once per frame
@@ -54,6 +56,13 @@ public class LocalScoreManager : MonoBehaviour
 
         scoreTexts[currentOver].text = score.ToString();
 
+        currentOver++;
+    }
+
+
+    private void BallMissedCallback()
+    {
+        scoreTexts[currentOver].text = "0";
         currentOver++;
     }
 

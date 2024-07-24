@@ -12,6 +12,7 @@ public class Ball : MonoBehaviour
 
     [Header(" Events ")]
     public static Action<Vector3> onBallHitGround;
+    public static Action onBallMissed;
 
 
 
@@ -30,6 +31,11 @@ public class Ball : MonoBehaviour
         if (collider.tag =="Water")
         {
             WaterTriggeredCallback();
+        }
+
+        else if (collider.tag =="Miss")
+        {
+            MissTriggeredCallback();
         }
     }
 
@@ -66,6 +72,23 @@ public class Ball : MonoBehaviour
         hasHitGround = true;
 
         onBallHitGround?.Invoke(transform.position);
+    }
+
+
+    private void MissTriggeredCallback()
+    {
+        if (hasBeenHitByBat)
+        {
+            return;
+        }
+
+        if (hasHitGround)
+        {
+            return;
+        }
+        hasHitGround = true;
+
+        onBallMissed?.Invoke();
     }
 
 

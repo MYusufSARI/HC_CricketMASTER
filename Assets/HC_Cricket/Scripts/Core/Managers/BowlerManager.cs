@@ -42,6 +42,8 @@ public class BowlerManager : MonoBehaviour
         StartAiming();
 
         BowlerPowerSlider.onPowerSliderStopped += PowerSliderStoppedCallback;
+
+        Ball.onBallMissed += BallMissedCallback;
         Ball.onBallHitGround += BallHitGroundCallback;
     }
 
@@ -49,6 +51,8 @@ public class BowlerManager : MonoBehaviour
     private void OnDestroy()
     {
         BowlerPowerSlider.onPowerSliderStopped -= PowerSliderStoppedCallback;
+
+        Ball.onBallMissed -= BallMissedCallback;
         Ball.onBallHitGround -= BallHitGroundCallback;
     }
 
@@ -111,6 +115,12 @@ public class BowlerManager : MonoBehaviour
         {
             SetNextOver();
         }
+    }
+
+
+    private void BallMissedCallback()
+    {
+        BallHitGroundCallback(Vector3.zero);
     }
 
 
