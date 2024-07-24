@@ -24,7 +24,7 @@ public class AIBatsman : MonoBehaviour
     [Header(" Events ")]
     public static Action<Transform> onBallHit;
 
-
+    
     private State _state;
     private bool canDetectHits;
     private float hitTimer;
