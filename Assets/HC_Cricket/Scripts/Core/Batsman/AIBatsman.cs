@@ -165,7 +165,9 @@ public class AIBatsman : MonoBehaviour
         float lerp = Mathf.Clamp01(hitTimer / maxHitDuration);
         float hitVelocity = Mathf.Lerp(mixMaxHitVelocity.y, mixMaxHitVelocity.x, lerp);
 
-        ball.GetComponent<Rigidbody>().velocity = (Vector3.back + Vector3.up + Vector3.right * Random.Range(-1f, 1f )) * hitVelocity;
+        Vector3 hitVelocityVector = (Vector3.back + Vector3.up + Vector3.right * Random.Range(-1f, 1f)) * hitVelocity;
+
+        ball.GetComponent<Ball>().GetHitByBat(hitVelocityVector);
 
         onBallHit?.Invoke(ball);
     }

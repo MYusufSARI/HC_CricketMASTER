@@ -7,22 +7,12 @@ public class Ball : MonoBehaviour
 {
     [Header(" Settings ")]
     private bool hasHitGround;
+    private bool hasBeenHitByBat;
 
 
     [Header(" Events ")]
     public static Action<Vector3> onBallHitGround;
 
-
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
 
     private void OnCollisionEnter(Collision collision)
@@ -37,6 +27,11 @@ public class Ball : MonoBehaviour
 
     private void FieldCollidedCallback()
     {
+        if (!hasBeenHitByBat)
+        {
+            return;
+        }
+
         if (hasHitGround)
         {
             return;
@@ -45,5 +40,12 @@ public class Ball : MonoBehaviour
         hasHitGround = true;
 
         onBallHitGround?.Invoke(transform.position);
+    }
+
+
+    public void GetHitByBat(Vector3 velocity)
+    {
+        hasBeenHitByBat = true;
+        GetComponent<Rigidbody>().velocity = velocity;
     }
 }
