@@ -5,6 +5,7 @@ using UnityEngine;
 public class BowlerTarget : MonoBehaviour
 {
     [Header(" Settings ")]
+    [SerializeField] private bool isBatsmanScene;
     [SerializeField] private Vector2 minMaxX;
     [SerializeField] private Vector2 minMaxZ;
     [SerializeField] private Vector2 moveSpeed;
@@ -19,7 +20,7 @@ public class BowlerTarget : MonoBehaviour
 
     private void Update()
     {
-        if (canMove)
+        if (canMove && !isBatsmanScene)
         {
             ManageControl();
         }
@@ -51,9 +52,12 @@ public class BowlerTarget : MonoBehaviour
     }
 
 
-    public void Move(Vector2 targetPosition)
+    public void Move(Vector2 movement)
     {
-        transform.position = new Vector3(targetPosition.x, 0, targetPosition.y);
+        float xPosition = Mathf.Lerp(minMaxX.x, minMaxX.y, movement.x);
+        float zPosition = Mathf.Lerp(minMaxZ.x, minMaxZ.y, movement.y);
+
+        transform.position = new Vector3(xPosition, 0, zPosition);
     }
 
 

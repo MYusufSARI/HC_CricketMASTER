@@ -3960,6 +3960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8357255fc40bd4fc28b63c084e21dbec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBatsmanScene: 1
   minMaxX: {x: -1.66, y: 1.66}
   minMaxZ: {x: 6, y: 8.8}
   moveSpeed: {x: 5, y: 9}

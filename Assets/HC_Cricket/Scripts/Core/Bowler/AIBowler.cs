@@ -79,8 +79,8 @@ public class AIBowler : MonoBehaviour
 
     private void Aim()
     {
-        float x = Mathf.Sin(Time.time);
-        float y = Mathf.Sin(Time.time * 2);
+        float x = Mathf.PerlinNoise(0, Time.time + 36);
+        float y = Mathf.PerlinNoise(0, Time.time * 2);
 
         Vector2 targetPosition = new Vector2(x, y);
 
