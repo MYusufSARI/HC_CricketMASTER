@@ -51,6 +51,12 @@ public class BowlerTarget : MonoBehaviour
     }
 
 
+    public void Move(Vector2 targetPosition)
+    {
+        transform.position = new Vector3(targetPosition.x, 0, targetPosition.y);
+    }
+
+
     public void EnableMovement()
     {
         canMove = true;

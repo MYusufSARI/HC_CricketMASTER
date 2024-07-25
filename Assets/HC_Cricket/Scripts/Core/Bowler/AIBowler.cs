@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AIBowler : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class AIBowler : MonoBehaviour
     [SerializeField] private GameObject fakeBall;
     [SerializeField] private BallLauncher ballLauncher;
     [SerializeField] private GameObject ballTarget;
+    [SerializeField] private BowlerTarget bowlerTarget;
 
 
     [Header(" Settings ")]
@@ -34,7 +36,7 @@ public class AIBowler : MonoBehaviour
 
     private void Start()
     {
-        _state = State.Idle;
+        _state = State.Aiming;
 
         initialPosition = transform.position;
 
@@ -77,7 +79,12 @@ public class AIBowler : MonoBehaviour
 
     private void Aim()
     {
+        float x = Mathf.Sin(Time.time);
+        float y = Mathf.Sin(Time.time * 2);
 
+        Vector2 targetPosition = new Vector2(x, y);
+
+        bowlerTarget.Move(targetPosition);
     }
 
 

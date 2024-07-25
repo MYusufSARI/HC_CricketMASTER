@@ -8014,7 +8014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bowlerTarget: {fileID: 824768209}
   powerSlider: {fileID: 0}
-  playerBowler: {fileID: 2081864552}
+  playerBowler: {fileID: 0}
   bowlingPanel: {fileID: 0}
   aimingPanel: {fileID: 746558949}
   minMaxBowlingSpeed: {x: 60, y: 160}
@@ -8323,7 +8323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2081864553}
-  - component: {fileID: 2081864552}
+  - component: {fileID: 2081864554}
   m_Layer: 0
   m_Name: AiBowler
   m_TagString: Untagged
@@ -8331,25 +8331,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2081864552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081864551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cb456f71a0594b56a1f09ff19076618, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 553032061}
-  fakeBall: {fileID: 7784890319742204209}
-  ballLauncher: {fileID: 1528512353}
-  ballTarget: {fileID: 824768207}
-  moveSpeed: 4
-  runDuration: 3
-  flightDurationMultiplier: 0.8
 --- !u!4 &2081864553
 Transform:
   m_ObjectHideFlags: 0
@@ -8366,6 +8347,26 @@ Transform:
   - {fileID: 543450652728015174}
   m_Father: {fileID: 68100638}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2081864554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081864551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cefd3795b5f436e8d8d8453c26f693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 553032061}
+  fakeBall: {fileID: 7784890319742204209}
+  ballLauncher: {fileID: 1528512353}
+  ballTarget: {fileID: 824768207}
+  bowlerTarget: {fileID: 824768209}
+  moveSpeed: 4
+  runDuration: 3
+  flightDurationMultiplier: 1.6
 --- !u!23 &64475415097046279
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8535,7 +8536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e290cdfe8cd46db99d00b2546c26b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBowler: {fileID: 2081864552}
+  playerBowler: {fileID: 0}
 --- !u!135 &1154525467727673331
 SphereCollider:
   m_ObjectHideFlags: 0
