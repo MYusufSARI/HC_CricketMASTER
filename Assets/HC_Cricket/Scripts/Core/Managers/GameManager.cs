@@ -50,19 +50,28 @@ public class GameManager : MonoBehaviour
 
         onGameSet?.Invoke();
 
-        TryStartingNextGameMode();
+        StartGame();
     }
 
 
-    private void TryStartingNextGameMode()
+    public void StartGame()
+    {
+        if (firstGameState == GameState.Bowler)
+            StartBowlerMode();
+        else
+            StartBatsmanMode(); 
+    }
+
+
+    public void TryStartingNextGameMode()
     {
         if (gameState == firstGameState)
         {
             // Trigger the first game mode
             if (firstGameState == GameState.Bowler)
-                StartBowlerMode();
-            else
                 StartBatsmanMode();
+            else
+                StartBowlerMode();
         }
 
         else
@@ -75,12 +84,16 @@ public class GameManager : MonoBehaviour
 
     private void StartBowlerMode()
     {
+        gameState = GameState.Bowler;
+
         SceneManager.LoadScene("BowlerScene");
     }
 
 
     private void StartBatsmanMode()
     {
+        gameState = GameState.Batsman;
+
         SceneManager.LoadScene("BatsmanScene");
     }
 

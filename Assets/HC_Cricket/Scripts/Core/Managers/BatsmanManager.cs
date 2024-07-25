@@ -61,7 +61,7 @@ public class BatsmanManager : MonoBehaviour
             // We should either switch to the next game mode
             // Or we should end the game / Compare the scores
 
-            Debug.Log("Set next game Mode");
+            GameManager.instance.TryStartingNextGameMode();
         }
 
         else
