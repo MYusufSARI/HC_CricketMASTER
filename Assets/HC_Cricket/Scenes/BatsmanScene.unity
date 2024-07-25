@@ -7980,7 +7980,7 @@ GameObject:
   - component: {fileID: 2004548038}
   - component: {fileID: 2004548039}
   m_Layer: 0
-  m_Name: BowlerManager
+  m_Name: BatsmanManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8529,10 +8529,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132149062231036}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61e290cdfe8cd46db99d00b2546c26b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 371a5ca2eb39542099941f12db3c2233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBowler: {fileID: 0}
+  aiBowler: {fileID: 2081864554}
 --- !u!135 &1154525467727673331
 SphereCollider:
   m_ObjectHideFlags: 0

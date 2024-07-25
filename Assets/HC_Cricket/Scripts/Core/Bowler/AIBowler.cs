@@ -23,6 +23,7 @@ public class AIBowler : MonoBehaviour
     private float runTimer;
     private float bowlingSpeed;
     private Vector3 initialPosition;
+    private float aimingTimer;
 
 
     [Header(" Events ")]
@@ -82,6 +83,7 @@ public class AIBowler : MonoBehaviour
     private void StartAiming()
     {
         _state = State.Aiming;
+        aimingTimer = 0;
     }
 
 
@@ -93,6 +95,13 @@ public class AIBowler : MonoBehaviour
         Vector2 targetPosition = new Vector2(x, y);
 
         bowlerTarget.Move(targetPosition);
+
+        aimingTimer += Time.deltaTime;
+
+        if (aimingTimer>2)
+        {
+            StartRunning(80);
+        }
     }
 
 
