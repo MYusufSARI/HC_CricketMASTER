@@ -1,21 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public enum GameState { Menu, Bowler, Batsman, Wing, Lose, Draw }
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     [Header(" Settings ")]
     private GameState gameState;
     private GameState firstGameState;
 
 
+    [Header(" Actions ")]
+    public static Action onGameSet;
+
+
+
     private void Awake()
     {
         Application.targetFrameRate = 60;
+
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
     }
 
 
@@ -34,6 +47,8 @@ public class GameManager : MonoBehaviour
         }
 
         gameState = firstGameState;
+
+        onGameSet?.Invoke();
 
         TryStartingNextGameMode();
     }
@@ -67,5 +82,11 @@ public class GameManager : MonoBehaviour
     private void StartBatsmanMode()
     {
         SceneManager.LoadScene("BatsmanScene");
+    }
+
+
+    public bool IsBowler()
+    {
+        return gameState == GameState.Bowler;
     }
 }
