@@ -20,12 +20,6 @@ public class BatsmanManager : MonoBehaviour
 
 
 
-    private void Awake()
-    {
-        Application.targetFrameRate = 60;
-    }
-
-
     IEnumerator Start()
     {
         yield return null;
