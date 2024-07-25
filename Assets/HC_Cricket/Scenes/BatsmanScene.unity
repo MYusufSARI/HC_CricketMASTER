@@ -3926,7 +3926,7 @@ GameObject:
   - component: {fileID: 824768208}
   - component: {fileID: 824768209}
   m_Layer: 0
-  m_Name: BowlerTarget
+  m_Name: AiBowlerTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
