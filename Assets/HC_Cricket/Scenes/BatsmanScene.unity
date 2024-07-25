@@ -7985,7 +7985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2004548038
 Transform:
   m_ObjectHideFlags: 0
@@ -8010,14 +8010,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2004548037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbac988c4165c46f2ba345bf8c49458a, type: 3}
+  m_Script: {fileID: 11500000, guid: e048f72d17a3d4a2ea748dd8773a0779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bowlerTarget: {fileID: 824768209}
-  powerSlider: {fileID: 0}
-  playerBowler: {fileID: 0}
-  bowlingPanel: {fileID: 0}
-  aimingPanel: {fileID: 746558949}
   minMaxBowlingSpeed: {x: 60, y: 160}
   bowlingSpeedCurve:
     serializedVersion: 2

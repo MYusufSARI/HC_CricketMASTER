@@ -36,17 +36,19 @@ public class AIBowler : MonoBehaviour
 
     private void Start()
     {
-        _state = State.Aiming;
+        _state = State.Idle;
 
         initialPosition = transform.position;
 
-        BowlerManager.onNextOverSet += Restart;
+        BatsmanManager.onAimingStarted += StartAiming;
+        BatsmanManager.onNextOverSet += Restart;
     }
 
 
     private void OnDestroy()
     {
-        BowlerManager.onNextOverSet -= Restart;
+        BatsmanManager.onAimingStarted -= StartAiming;
+        BatsmanManager.onNextOverSet -= Restart;
     }
 
 
@@ -74,6 +76,12 @@ public class AIBowler : MonoBehaviour
             case State.Bowling:
                 break;
         }
+    }
+
+
+    private void StartAiming()
+    {
+        _state = State.Aiming;
     }
 
 
