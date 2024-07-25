@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,10 @@ public class LocalScoreManager : MonoBehaviour
     [SerializeField] private float firstRingRadius;
     [SerializeField] private float secondRingRadius;
     private int currentOver;
+
+
+    [Header(" Events ")]
+    public static Action<int> onScoreCalculated;
 
 
     private void Start()
@@ -54,6 +59,10 @@ public class LocalScoreManager : MonoBehaviour
             score += 2;
         }
 
+        //We know the value of the score at this point
+        // This is the amount of the current Batsman scored
+        onScoreCalculated?.Invoke(score);
+
         scoreTexts[currentOver].text = score.ToString();
 
         currentOver++;
@@ -64,6 +73,8 @@ public class LocalScoreManager : MonoBehaviour
     {
         scoreTexts[currentOver].text = "0";
         currentOver++;
+
+        onScoreCalculated?.Invoke(0);
     }
 
 
