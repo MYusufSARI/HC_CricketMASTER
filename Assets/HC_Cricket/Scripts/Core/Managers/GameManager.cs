@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
         onGameSet?.Invoke();
 
-        StartGame();
+        Invoke("StartGame", 2);
     }
 
 
