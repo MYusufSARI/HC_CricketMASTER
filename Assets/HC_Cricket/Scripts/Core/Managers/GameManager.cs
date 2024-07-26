@@ -68,11 +68,7 @@ public class GameManager : MonoBehaviour
     {
         if (gameState == firstGameState)
         {
-            // Trigger the first game mode
-            if (firstGameState == GameState.Bowler)
-                StartBatsmanMode();
-            else
-                StartBowlerMode();
+            LeanTween.delayedCall(2, StartNextGameMode);
         }
 
         else
@@ -82,6 +78,16 @@ public class GameManager : MonoBehaviour
 
             FinishGame();
         }
+    }
+
+
+    private void StartNextGameMode()
+    {
+        // Trigger the first game mode
+        if (firstGameState == GameState.Bowler)
+            StartBatsmanMode();
+        else
+            StartBowlerMode();
     }
 
 

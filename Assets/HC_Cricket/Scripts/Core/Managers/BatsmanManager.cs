@@ -9,6 +9,7 @@ public class BatsmanManager : MonoBehaviour
     [SerializeField] private GameObject winPanel;
     [SerializeField] private GameObject losePanel;
     [SerializeField] private GameObject drawPanel;
+    [SerializeField] private CanvasGroup transitionCG;
 
 
     [Header(" Settings ")]
@@ -71,6 +72,8 @@ public class BatsmanManager : MonoBehaviour
             // We should either switch to the next game mode
             // Or we should end the game / Compare the scores
 
+            ShowTransitionPanel();
+
             GameManager.instance.TryStartingNextGameMode();
         }
 
@@ -107,6 +110,14 @@ public class BatsmanManager : MonoBehaviour
 
             StartAiming();
         }
+    }
+
+
+    private void ShowTransitionPanel()
+    {
+        LeanTween.alphaCanvas(transitionCG, 1, 0.5f);
+        transitionCG.interactable = true;
+        transitionCG.blocksRaycasts = true;
     }
 
 
