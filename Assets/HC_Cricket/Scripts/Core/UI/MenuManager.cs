@@ -36,7 +36,7 @@ public class MenuManager : MonoBehaviour
         }
 
         // Show the TransitionPanel
-        transitionCG.alpha = 1;
+        LeanTween.alphaCanvas(transitionCG, 1, 0.5f);
         transitionCG.blocksRaycasts = true;
         transitionCG.interactable = true;
     }
