@@ -10165,6 +10165,10 @@ MonoBehaviour:
   drawPanel: {fileID: 6174495793948997550}
   transitionCG: {fileID: 9188175366985611664}
   transitionScoreText: {fileID: 54996424}
+  endScoreTexts:
+  - {fileID: 333314445}
+  - {fileID: 883501204}
+  - {fileID: 1879289506}
   minMaxBowlingSpeed: {x: 60, y: 160}
   bowlingSpeedCurve:
     serializedVersion: 2
@@ -12885,7 +12889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &7963943721057108010
 GameObject:
   m_ObjectHideFlags: 0

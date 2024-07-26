@@ -24,6 +24,10 @@ public class BowlerManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI transitionScoreText;
 
 
+    [Header(" EndGame Score Texts ")]
+    [SerializeField] private TextMeshProUGUI[] endScoreTexts;
+
+
     [Header(" Settings ")]
     [SerializeField] private Vector2 minMaxBowlingSpeed;
     [SerializeField] private AnimationCurve bowlingSpeedCurve;
@@ -124,6 +128,13 @@ public class BowlerManager : MonoBehaviour
 
                 ShowTransitionPanel();
             }
+
+            else
+            {
+                // This is when the GameManager returns false
+                // This means that we ended the game
+                UpdateEndGameScoreTexts();
+            }
         }
 
         else
@@ -137,6 +148,16 @@ public class BowlerManager : MonoBehaviour
     {
         transitionScoreText.text = "<color #00aaff>" + ScoreManager.instance.GetPlayerScore() +
                                    "</color> - <color #ff5500>" + ScoreManager.instance.GetAiScore() + "</color>";
+    }
+
+
+    private void UpdateEndGameScoreTexts()
+    {
+        for (int i = 0; i < endScoreTexts.Length; i++)
+        {
+            endScoreTexts[i].text = transitionScoreText.text = "<color #00aaff>" + ScoreManager.instance.GetPlayerScore() +
+                                   "</color> - <color #ff5500>" + ScoreManager.instance.GetAiScore() + "</color>";
+        }
     }
 
 
