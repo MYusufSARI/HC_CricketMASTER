@@ -14,6 +14,7 @@ public class Ball : MonoBehaviour
     public static Action<Vector3> onBallHitGround;
     public static Action onBallMissed;
     public static Action onBallHitStump;
+    public static Action <Vector3>onBallFellInWater;
 
 
 
@@ -77,7 +78,9 @@ public class Ball : MonoBehaviour
         }
         hasHitGround = true;
 
-        onBallHitGround?.Invoke(transform.position);
+        onBallFellInWater?.Invoke(transform.position);
+
+        //onBallHitGround?.Invoke(transform.position);
     }
 
 

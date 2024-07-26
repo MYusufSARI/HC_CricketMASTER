@@ -26,6 +26,7 @@ public class LocalScoreManager : MonoBehaviour
 
         Ball.onBallHitGround += BallHitGroundCallback;
         Ball.onBallMissed += BallMissedCallback;
+        Ball.onBallFellInWater += BallHitGroundCallback;
     }
 
 
@@ -33,6 +34,7 @@ public class LocalScoreManager : MonoBehaviour
     {
         Ball.onBallHitGround -= BallHitGroundCallback;
         Ball.onBallMissed -= BallMissedCallback;
+        Ball.onBallFellInWater -= BallHitGroundCallback;
     }
 
     // Update is called once per frame

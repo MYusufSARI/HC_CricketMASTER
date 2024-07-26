@@ -15,7 +15,9 @@ public class BatsmanCamera : MonoBehaviour
         BatsmanManager.onAimingStarted += EnableBatsmanCamera;
 
         PlayerBatsman.onBallHit += EnableBallCamera;
+
         Ball.onBallHitGround += BallHitGroundCallback;
+        Ball.onBallFellInWater += BallHitGroundCallback;
     }
 
 
@@ -24,7 +26,9 @@ public class BatsmanCamera : MonoBehaviour
         BatsmanManager.onAimingStarted -= EnableBatsmanCamera;
 
         PlayerBatsman.onBallHit -= EnableBallCamera;
+
         Ball.onBallHitGround -= BallHitGroundCallback;
+        Ball.onBallFellInWater -= BallHitGroundCallback;
     }
 
 

@@ -16,8 +16,11 @@ public class BowlerCamera : MonoBehaviour
     {
         BowlerManager.onAimingStarted += EnableAimingCamera;
         BowlerManager.onBowlingStarted += EnableBowlingCamera;
+
         AIBatsman.onBallHit += EnableBallCamera;
+
         Ball.onBallHitGround += BallHitGroundCallback;
+        Ball.onBallFellInWater += BallHitGroundCallback;
     }
 
 
@@ -25,8 +28,11 @@ public class BowlerCamera : MonoBehaviour
     {
         BowlerManager.onAimingStarted -= EnableAimingCamera;
         BowlerManager.onBowlingStarted -= EnableBowlingCamera;
+
         AIBatsman.onBallHit -= EnableBallCamera;
+
         Ball.onBallHitGround -= BallHitGroundCallback;
+        Ball.onBallFellInWater -= BallHitGroundCallback;
     }
 
 

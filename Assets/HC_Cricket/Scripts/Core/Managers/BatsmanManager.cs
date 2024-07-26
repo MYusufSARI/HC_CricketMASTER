@@ -46,6 +46,7 @@ public class BatsmanManager : MonoBehaviour
         Ball.onBallMissed += BallMissedCallback;
         Ball.onBallHitGround += BallHitGroundCallback;
         Ball.onBallHitStump += BallHitStumpCallback;
+        Ball.onBallFellInWater += BallHitGroundCallback;
 
         GameManager.onGameStateChanged += GameStateChangedCallback;
     }
@@ -56,6 +57,7 @@ public class BatsmanManager : MonoBehaviour
         Ball.onBallMissed -= BallMissedCallback;
         Ball.onBallHitGround -= BallHitGroundCallback;
         Ball.onBallHitStump -= BallHitStumpCallback;
+        Ball.onBallFellInWater -= BallHitGroundCallback;
 
         GameManager.onGameStateChanged -= GameStateChangedCallback;
     }
