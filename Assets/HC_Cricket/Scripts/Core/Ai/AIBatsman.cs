@@ -117,7 +117,9 @@ public class AIBatsman : MonoBehaviour
         {
             float bestDelay = ballFlightDuration - 0.5f;
 
-            yield return new WaitForSeconds(bestDelay);
+            float delay = Random.Range(bestDelay - 0.2f, bestDelay);
+
+            yield return new WaitForSeconds(delay);
 
             _animator.Play(HIT);
         }
