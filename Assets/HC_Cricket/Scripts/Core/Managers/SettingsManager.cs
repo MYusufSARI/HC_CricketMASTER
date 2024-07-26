@@ -11,18 +11,29 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private Sprite optionsOffSprite;
     [SerializeField] private Image soundsButtonImage;
     [SerializeField] private Image hapticsButtonImage;
+    [SerializeField] private GameObject settingsPanel;
 
 
     [Header(" Settings ")]
-    private bool soundsState =true;
+    private bool soundsState = true;
     private bool hapticsState = true;
 
 
 
 
+    private void Awake()
+    {
+        soundsState = PlayerPrefs.GetInt("sounds", 1) == 1;
+        hapticsState = PlayerPrefs.GetInt("haptics", 1) == 1;
+
+    }
+
+
     private void Start()
     {
         Setup();
+
+        settingsPanel.SetActive(false);
     }
 
 
@@ -55,6 +66,28 @@ public class SettingsManager : MonoBehaviour
         soundsState = !soundsState;
 
         // Save the value of the sounds State
+
+        PlayerPrefs.SetInt("sounds", soundsState ? 1 : 0);
+    }
+
+
+    private void ChangeHapticsState()
+    {
+        if (hapticsState)
+        {
+            DisableHaptics();
+        }
+
+        else
+        {
+            EnableHaptics();
+        }
+
+        hapticsState = !hapticsState;
+
+        // Save the value of the sounds State
+
+        PlayerPrefs.SetInt("haptics", hapticsState ? 1 : 0);
     }
 
 
@@ -75,5 +108,29 @@ public class SettingsManager : MonoBehaviour
 
         // Changed the image of the soudns button
         soundsButtonImage.sprite = optionsOnSprite;
+    }
+
+
+    private void DisableHaptics()
+    {
+
+    }
+
+
+    private void EnableHaptics()
+    {
+
+    }
+
+
+    public void ShowSettingsPanel()
+    {
+        settingsPanel.SetActive(true);
+    }
+
+
+    public void HideSettingsPanel()
+    {
+        settingsPanel.SetActive(false);
     }
 }
