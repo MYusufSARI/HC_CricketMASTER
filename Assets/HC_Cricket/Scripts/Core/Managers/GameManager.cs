@@ -64,11 +64,12 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void TryStartingNextGameMode()
+    public bool TryStartingNextGameMode()
     {
         if (gameState == firstGameState)
         {
             LeanTween.delayedCall(2, StartNextGameMode);
+            return true;
         }
 
         else
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Trigger Win / Lose / Draw Game Mode ! ");
 
             FinishGame();
+            return false;
         }
     }
 

@@ -72,9 +72,8 @@ public class BatsmanManager : MonoBehaviour
             // We should either switch to the next game mode
             // Or we should end the game / Compare the scores
 
-            ShowTransitionPanel();
-
-            GameManager.instance.TryStartingNextGameMode();
+            if (GameManager.instance.TryStartingNextGameMode())
+                ShowTransitionPanel();
         }
 
         else
