@@ -131,6 +131,13 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void NextButtonCallback()
+    {
+        SetGameState(GameState.Menu);
+        SceneManager.LoadScene("MainScene");
+    }
+
+
     public bool IsBowler()
     {
         return gameState == GameState.Bowler;

@@ -145,4 +145,10 @@ public class BatsmanManager : MonoBehaviour
     {
         drawPanel.SetActive(true);
     }
+
+
+    public void NextButtonCallback()
+    {
+        GameManager.instance.NextButtonCallback();
+    }
 }

@@ -189,4 +189,10 @@ public class BowlerManager : MonoBehaviour
     {
         drawPanel.SetActive(true);
     }
+
+
+    public void NextButtonCallback()
+    {
+        GameManager.instance.NextButtonCallback();
+    }
 }

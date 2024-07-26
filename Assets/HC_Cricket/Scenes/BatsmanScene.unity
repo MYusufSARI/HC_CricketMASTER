@@ -8717,7 +8717,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7600010}
+      objectReference: {fileID: 2004548039}
+    - target: {fileID: 7435888024894543777, guid: c53aa84734a654a1ebe962da3af42fb5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextButtonCallback
+      objectReference: {fileID: 0}
+    - target: {fileID: 7435888024894543777, guid: c53aa84734a654a1ebe962da3af42fb5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BatsmanManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9081,7 +9091,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7600010}
+      objectReference: {fileID: 2004548039}
+    - target: {fileID: 6210555486828130555, guid: f971e5647e328487baa42a473d142c93,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextButtonCallback
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210555486828130555, guid: f971e5647e328487baa42a473d142c93,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BatsmanManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7572458380215227108, guid: f971e5647e328487baa42a473d142c93,
         type: 3}
       propertyPath: m_Name
@@ -9637,7 +9657,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7600010}
+      objectReference: {fileID: 2004548039}
+    - target: {fileID: 2314340118790743700, guid: b8a34e419c6ff4d40a76f45e66672579,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextButtonCallback
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314340118790743700, guid: b8a34e419c6ff4d40a76f45e66672579,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BatsmanManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3035967136880845158, guid: b8a34e419c6ff4d40a76f45e66672579,
         type: 3}
       propertyPath: m_Pivot.x
