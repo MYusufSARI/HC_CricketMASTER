@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
-public enum GameState { Menu, Bowler, Batsman, Wing, Lose, Draw }
+public enum GameState { Menu, Bowler, Batsman, Win, Lose, Draw }
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     [Header(" Actions ")]
     public static Action onGameSet;
+    public static Action<GameState> onGameStateChanged;
 
 
 
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
         if (firstGameState == GameState.Bowler)
             StartBowlerMode();
         else
-            StartBatsmanMode(); 
+            StartBatsmanMode();
     }
 
 
@@ -105,17 +106,28 @@ public class GameManager : MonoBehaviour
         if (ScoreManager.instance.IsPlayerWin())
         {
             // Set the Win state
+            SetGameState(GameState.Win);
         }
 
         else if (ScoreManager.instance.IsPlayerLose())
         {
             // Set the Lose state
+            SetGameState(GameState.Lose);
         }
 
         else
         {
             // Set the Draw state
+            SetGameState(GameState.Draw);
         }
+    }
+
+
+    public void SetGameState(GameState gameState)
+    {
+        this.gameState = gameState;
+
+        onGameStateChanged?.Invoke(gameState);
     }
 
 

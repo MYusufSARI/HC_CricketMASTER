@@ -15,18 +15,24 @@ public class BowlerManager : MonoBehaviour
     [SerializeField] private GameObject aimingPanel;
 
 
+    [Header(" Elements ")]
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject losePanel;
+    [SerializeField] private GameObject drawPanel;
+
+
     [Header(" Settings ")]
     [SerializeField] private Vector2 minMaxBowlingSpeed;
     [SerializeField] private AnimationCurve bowlingSpeedCurve;
-
-
-    private int currentOver;
 
 
     [Header(" Events ")]
     public static Action onAimingStarted;
     public static Action onBowlingStarted;
     public static Action onNextOverSet;
+
+
+    private int currentOver;
 
 
 
@@ -39,6 +45,8 @@ public class BowlerManager : MonoBehaviour
         Ball.onBallMissed += BallMissedCallback;
         Ball.onBallHitGround += BallHitGroundCallback;
         Ball.onBallHitStump += BallHitStumpCallback;
+
+        GameManager.onGameStateChanged += GameStateChangedCallback;
     }
 
 
@@ -49,6 +57,8 @@ public class BowlerManager : MonoBehaviour
         Ball.onBallMissed -= BallMissedCallback;
         Ball.onBallHitGround -= BallHitGroundCallback;
         Ball.onBallHitStump -= BallHitStumpCallback;
+
+        GameManager.onGameStateChanged -= GameStateChangedCallback;
     }
 
 
@@ -141,5 +151,42 @@ public class BowlerManager : MonoBehaviour
 
             StartAiming();
         }
+    }
+
+
+    private void GameStateChangedCallback(GameState gameState)
+    {
+        switch (gameState)
+        {
+            case GameState.Win:
+                ShowWinPanel();
+                break;
+
+            case GameState.Lose:
+                ShowLosePanel();
+                break;
+
+            case GameState.Draw:
+                ShowDrawPanel();
+                break;
+        }
+    }
+
+
+    public void ShowWinPanel()
+    {
+        winPanel.SetActive(true);
+    }
+
+
+    public void ShowLosePanel()
+    {
+        losePanel.SetActive(true);
+    }
+
+
+    public void ShowDrawPanel()
+    {
+        drawPanel.SetActive(true);
     }
 }

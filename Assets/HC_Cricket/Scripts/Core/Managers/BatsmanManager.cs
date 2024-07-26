@@ -35,6 +35,8 @@ public class BatsmanManager : MonoBehaviour
         Ball.onBallMissed += BallMissedCallback;
         Ball.onBallHitGround += BallHitGroundCallback;
         Ball.onBallHitStump += BallHitStumpCallback;
+
+        GameManager.onGameStateChanged += GameStateChangedCallback;
     }
 
 
@@ -43,6 +45,8 @@ public class BatsmanManager : MonoBehaviour
         Ball.onBallMissed -= BallMissedCallback;
         Ball.onBallHitGround -= BallHitGroundCallback;
         Ball.onBallHitStump -= BallHitStumpCallback;
+
+        GameManager.onGameStateChanged -= GameStateChangedCallback;
     }
 
 
@@ -102,6 +106,25 @@ public class BatsmanManager : MonoBehaviour
             onNextOverSet?.Invoke();
 
             StartAiming();
+        }
+    }
+
+
+    private void GameStateChangedCallback(GameState gameState)
+    {
+        switch (gameState)
+        {
+            case GameState.Win:
+                ShowWinPanel();
+                break;
+
+            case GameState.Lose:
+                ShowLosePanel();
+                break;
+
+            case GameState.Draw:
+                ShowDrawPanel();
+                break;
         }
     }
 
