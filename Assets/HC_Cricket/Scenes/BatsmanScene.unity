@@ -8338,6 +8338,7 @@ MonoBehaviour:
   losePanel: {fileID: 8508378085675228844}
   drawPanel: {fileID: 4370446515535193420}
   transitionCG: {fileID: 9188175366985611664}
+  transitionScoreText: {fileID: 54996424}
   minMaxBowlingSpeed: {x: 60, y: 160}
   bowlingSpeedCurve:
     serializedVersion: 2
@@ -11008,7 +11009,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3038944894335671750}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0

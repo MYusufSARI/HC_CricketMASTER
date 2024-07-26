@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BowlerManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class BowlerManager : MonoBehaviour
     [SerializeField] private GameObject losePanel;
     [SerializeField] private GameObject drawPanel;
     [SerializeField] private CanvasGroup transitionCG;
+    [SerializeField] private TextMeshProUGUI transitionScoreText;
 
 
     [Header(" Settings ")]
@@ -117,13 +119,24 @@ public class BowlerManager : MonoBehaviour
             // Or we should end the game / Compare the scores
 
             if (GameManager.instance.TryStartingNextGameMode())
+            {
+                UpdateTransitionScore();
+
                 ShowTransitionPanel();
+            }
         }
 
         else
         {
             SetNextOver();
         }
+    }
+
+
+    private void UpdateTransitionScore()
+    {
+        transitionScoreText.text = "<color #00aaff>" + ScoreManager.instance.GetPlayerScore() +
+                                   "</color> - <color #ff5500>" + ScoreManager.instance.GetAiScore() + "</color>";
     }
 
 

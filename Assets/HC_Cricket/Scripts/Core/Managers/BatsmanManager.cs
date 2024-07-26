@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BatsmanManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class BatsmanManager : MonoBehaviour
     [SerializeField] private GameObject losePanel;
     [SerializeField] private GameObject drawPanel;
     [SerializeField] private CanvasGroup transitionCG;
+    [SerializeField] private TextMeshProUGUI transitionScoreText;
 
 
     [Header(" Settings ")]
@@ -73,7 +75,11 @@ public class BatsmanManager : MonoBehaviour
             // Or we should end the game / Compare the scores
 
             if (GameManager.instance.TryStartingNextGameMode())
+            {
+                UpdateTransitionScore();
+
                 ShowTransitionPanel();
+            }
         }
 
         else
@@ -117,6 +123,13 @@ public class BatsmanManager : MonoBehaviour
         LeanTween.alphaCanvas(transitionCG, 1, 0.5f);
         transitionCG.interactable = true;
         transitionCG.blocksRaycasts = true;
+    }
+
+
+    private void UpdateTransitionScore()
+    {
+        transitionScoreText.text = "<color #00aaff>" + ScoreManager.instance.GetPlayerScore() +
+                                   "</color> - <color #ff5500>" + ScoreManager.instance.GetAiScore() + "</color>";
     }
 
 
