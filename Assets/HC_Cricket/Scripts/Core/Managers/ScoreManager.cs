@@ -5,10 +5,21 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public static ScoreManager instance;
+
     [Header(" Settings ")]
     private int playerScore;
     private int aiScore;
 
+
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
 
 
     private void Start()
@@ -60,5 +71,17 @@ public class ScoreManager : MonoBehaviour
     {
         playerScore = 0;
         aiScore = 0;
+    }
+
+
+    public bool IsPlayerWin()
+    {
+        return playerScore > aiScore;
+    }
+
+
+    public bool IsPlayerLose()
+    {
+        return playerScore < aiScore;
     }
 }

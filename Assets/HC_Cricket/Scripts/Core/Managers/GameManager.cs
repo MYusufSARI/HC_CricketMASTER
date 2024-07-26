@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour
         {
             // Trigger the Win / Draw / Lose
             Debug.LogWarning("Trigger Win / Lose / Draw Game Mode ! ");
+
+            FinishGame();
         }
     }
 
@@ -95,6 +97,25 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Batsman;
 
         SceneManager.LoadScene("BatsmanScene");
+    }
+
+
+    private void FinishGame()
+    {
+        if (ScoreManager.instance.IsPlayerWin())
+        {
+            // Set the Win state
+        }
+
+        else if (ScoreManager.instance.IsPlayerLose())
+        {
+            // Set the Lose state
+        }
+
+        else
+        {
+            // Set the Draw state
+        }
     }
 
 

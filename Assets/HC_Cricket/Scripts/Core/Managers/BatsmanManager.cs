@@ -5,18 +5,24 @@ using UnityEngine;
 
 public class BatsmanManager : MonoBehaviour
 {
+    [Header(" Elements ")]
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject losePanel;
+    [SerializeField] private GameObject drawPanel;
+
+
     [Header(" Settings ")]
     [SerializeField] private Vector2 minMaxBowlingSpeed;
     [SerializeField] private AnimationCurve bowlingSpeedCurve;
-
-
-    private int currentOver;
 
 
     [Header(" Events ")]
     public static Action onAimingStarted;
     public static Action onBowlingStarted;
     public static Action onNextOverSet;
+
+
+    private int currentOver;
 
 
 
@@ -97,5 +103,23 @@ public class BatsmanManager : MonoBehaviour
 
             StartAiming();
         }
+    }
+
+
+    public void ShowWinPanel()
+    {
+        winPanel.SetActive(true);
+    }
+
+
+    public void ShowLosePanel()
+    {
+        losePanel.SetActive(true);
+    }
+
+
+    public void ShowDrawPanel()
+    {
+        drawPanel.SetActive(true);
     }
 }

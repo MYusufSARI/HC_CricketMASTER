@@ -59,7 +59,7 @@ public class LocalScoreManager : MonoBehaviour
             score += 2;
         }
 
-        //We know the value of the score at this point
+        // We know the value of the score at this point
         // This is the amount of the current Batsman scored
         onScoreCalculated?.Invoke(score);
 
